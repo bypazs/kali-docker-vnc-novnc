@@ -17,17 +17,17 @@ RUN apt-get -y install dbus dbus-x11 novnc net-tools
 ENV USER root
 ENV VNCEXPOSE 1
 ENV VNCPORT 5900
-ENV VNCPWD eightlol
+ENV VNCPWD P@ssw0rd
 ENV VNCDISPLAY 1920x1080
 ENV VNCDEPTH 16
 ENV NOVNCPORT 9090
-ENV TZ=Europe/Amsterdam
+ENV Asia/Bangkok
 
 # Install custom packages
 RUN apt-get -y install nano
-RUN useradd -rm -d /home/hacker -s /bin/zsh -g root -G sudo -u 1001 hacker
-RUN echo 'hacker:changeme' | chpasswd
-WORKDIR /home/hacker
+RUN useradd -rm -d /home/sosecure -s /bin/zsh -g root -G sudo -u 1001 sosecure
+RUN echo 'sosecure:P@ssw0rd' | chpasswd
+WORKDIR /home/sosecure
 
 # fix anoying shit
 #RUN apt-get install xfce4 tigervnc-standalone-server -y
@@ -37,9 +37,12 @@ RUN apt-get install autocutsel inetutils-ping htop -y
 #RUN apt install xfce4-terminal -y
 RUN apt-get clean
 RUN apt-get autoremove -y
-RUN mkdir /home/hacker/Desktop
-RUN touch /home/hacker/Desktop/README.txt
-RUN echo "To enable copy/paste run: autocutsel -fork" >> /home/hacker/Desktop/README.txt
+RUN mkdir /home/sosecure/Desktop
+RUN touch /home/sosecure/Desktop/README.txt
+RUN echo "To enable copy/paste run: autocutsel -fork" >> /home/sosecure/Desktop/README.txt
+
+# Extract Wordlist
+RUN sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # Entrypoint
 COPY entrypoint.sh /entrypoint.sh

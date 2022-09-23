@@ -10,18 +10,18 @@ mkdir -p /root/.vnc/
 echo $VNCPWD | vncpasswd -f > /root/.vnc/passwd
 chmod 600 /root/.vnc/passwd
 
-# Set password for VNC as user hacker
-su hacker -c "mkdir -p /home/hacker/.vnc/"
-su hacker -c "echo $VNCPWD | vncpasswd -f > /home/hacker/.vnc/passwd"
-su hacker -c "chmod 600 /home/hacker/.vnc/passwd"
+# Set password for VNC as user sosecure
+su sosecure -c "mkdir -p /home/sosecure/.vnc/"
+su sosecure -c "echo $VNCPWD | vncpasswd -f > /home/sosecure/.vnc/passwd"
+su sosecure -c "chmod 600 /home/sosecure/.vnc/passwd"
 
-# Start VNC server as user hacker
-su hacker -c "vncserver :0 -rfbport $VNCPORT -geometry $VNCDISPLAY -depth $VNCDEPTH \
+# Start VNC server as user sosecure
+su sosecure -c "vncserver :0 -rfbport $VNCPORT -geometry $VNCDISPLAY -depth $VNCDEPTH \
   > /dev/null 2>&1 &"
 
-# Start noVNC server as user hacker
+# Start noVNC server as user sosecure
 
-su hacker -c "/usr/share/novnc/utils/launch.sh --listen $NOVNCPORT --vnc localhost:$VNCPORT \
+su sosecure -c "/usr/share/novnc/utils/launch.sh --listen $NOVNCPORT --vnc localhost:$VNCPORT \
   > /dev/null 2>&1 &"
 
 echo "#!/bin/sh
@@ -33,11 +33,11 @@ xsetroot -solid grey
 #x-window-manager &
 # Fix to make GNOME work
 export XKL_XMODMAP_DISABLE=1
-/etc/X11/Xsession" > /home/hacker/.vnc/xstartup
+/etc/X11/Xsession" > /home/sosecure/.vnc/xstartup
 
-chmod 777 /home/hacker/.vnc/xstartup
+chmod 777 /home/sosecure/.vnc/xstartup
 
 echo "Launch your web browser and open http://localhost:9020/vnc.html"
 
 # Start shell
-/bin/zsh && su - hacker
+/bin/zsh && su - sosecure

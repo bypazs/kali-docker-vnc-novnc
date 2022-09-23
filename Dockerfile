@@ -40,6 +40,7 @@ RUN apt-get autoremove -y
 RUN mkdir /home/sosecure/Desktop
 RUN touch /home/sosecure/Desktop/README.txt
 RUN echo "To enable copy/paste run: autocutsel -fork" >> /home/sosecure/Desktop/README.txt
+RUN echo "Try Harder!" >> /root/bypazs.txt
 
 # Extract Wordlist
 RUN sudo gunzip /usr/share/wordlists/rockyou.txt.gz

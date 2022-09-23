@@ -21,7 +21,7 @@ ENV VNCPWD P@ssw0rd
 ENV VNCDISPLAY 1920x1080
 ENV VNCDEPTH 16
 ENV NOVNCPORT 9090
-ENV Asia/Bangkok
+ENV TZ=Asia/Bangkok
 
 # Install custom packages
 RUN apt-get -y install nano

@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  kali:
+    container_name: kaligui
+    hostname: kaligui
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9020:8080
+      - 9021:5900
+    tty: true
+    restart: unless-stopped

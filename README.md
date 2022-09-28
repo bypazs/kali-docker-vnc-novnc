@@ -54,7 +54,14 @@ You can also build a custom image, i.e., if you want to use another Kali Desktop
 
 Download and build by use the commands below.
 
-`git clone https://github.com/bypazs/kali-docker-vnc-novnc.git && cd kali-docker-vnc-novnc && docker build -t kaligui .`
+`git clone https://github.com/bypazs/kali-docker-vnc-novnc.git && cd kali-docker-vnc-novnc`
+
+`docker build -t kaligui .`
+
+or
+
+`docker-compose up`
+
 
 Test by use the commands below.
 --rm		Automatically remove the container when it exits

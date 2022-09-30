@@ -3,7 +3,7 @@ LABEL description="Kali Linux with XFCE Desktop via VNC and noVNC in browser. "
 LABEL description="WARNING needs to be saved als LT end of line file"
 
 # Install kali packages
-ARG KALI_METAPACKAGE=large
+ARG KALI_METAPACKAGE=default
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y upgrade
@@ -24,7 +24,7 @@ ENV NOVNCPORT 9090
 ENV TZ=Asia/Bangkok
 
 # Install custom packages
-RUN apt-get -y install nano seclists
+RUN apt-get -y install nano seclists gobuster 
 RUN useradd -rm -d /home/sosecure -s /bin/zsh -g root -G sudo -u 1001 sosecure
 RUN echo 'sosecure:P@ssw0rd' | chpasswd
 WORKDIR /home/sosecure

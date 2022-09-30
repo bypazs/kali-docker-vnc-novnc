@@ -24,7 +24,7 @@ ENV NOVNCPORT 9090
 ENV TZ=Asia/Bangkok
 
 # Install custom packages
-RUN apt-get -y install nano
+RUN apt-get -y install nano seclists
 RUN useradd -rm -d /home/sosecure -s /bin/zsh -g root -G sudo -u 1001 sosecure
 RUN echo 'sosecure:P@ssw0rd' | chpasswd
 WORKDIR /home/sosecure
@@ -40,7 +40,8 @@ RUN apt-get autoremove -y
 RUN mkdir /home/sosecure/Desktop
 RUN touch /home/sosecure/Desktop/README.txt
 RUN echo "To enable copy/paste run: autocutsel -fork" >> /home/sosecure/Desktop/README.txt
-RUN echo 'Try Harder!\nGrim The Ripper Team by SOSECURE Thailand\nhttps://github.com/bypazs/GrimTheRipper' >> /root/bypazs.txt
+# Gimmick
+RUN echo 'Try Harder!\nGrim The Ripper Team by SOSECURE Thailand\nhttps://github.com/bypazs/GrimTheRipper' >> /home/sosecure/Documents/bypazs.txt
 
 # Extract Wordlist
 RUN sudo gunzip /usr/share/wordlists/rockyou.txt.gz

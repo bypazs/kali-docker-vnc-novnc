@@ -3,7 +3,7 @@ LABEL description="Kali Linux with XFCE Desktop via VNC and noVNC in browser. "
 LABEL description="WARNING needs to be saved als LT end of line file"
 
 # Install kali packages
-ARG KALI_METAPACKAGE=default
+ARG KALI_METAPACKAGE=large
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y upgrade

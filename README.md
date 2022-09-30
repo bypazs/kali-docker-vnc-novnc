@@ -68,7 +68,15 @@ Test by use the commands below.
 
 `docker run --rm -it -p 9020:8080 -p 9021:5900 -e NOVNCPORT=8080 kaligui`
 
-Run by use the commands below.
+Run by crontab via Ubuntu the commands below.
 
-`docker run -it -p 9020:8080 -p 9021:5900 -e NOVNCPORT=8080 kaligui`
+1. You need to create bash script.
+```
+#!/bin/bash
+
+docker run --rm --tty -p 9020:8080 -p 9021:5900 -e NOVNCPORT=8080 kaligui
+```
+2. Using `crontab -e` and type the commands below.
+
+`@reboot /bin/bash /home/sosecure/docker_run.sh`
 

@@ -24,7 +24,7 @@ su sosecure -c "vncserver :0 -rfbport $VNCPORT -geometry $VNCDISPLAY -depth $VNC
 su sosecure -c "/usr/share/novnc/utils/launch.sh --listen $NOVNCPORT --vnc localhost:$VNCPORT \
   > /dev/null 2>&1 &"
 
-echo "#!/bin/sh
+echo '#!/bin/sh
 
 autocutsel -fork
 xrdb "$HOME/.Xresources"
@@ -33,7 +33,7 @@ xsetroot -solid grey
 #x-window-manager &
 # Fix to make GNOME work
 export XKL_XMODMAP_DISABLE=1
-/etc/X11/Xsession" > /home/sosecure/.vnc/xstartup
+/etc/X11/Xsession' > /home/sosecure/.vnc/xstartup
 
 chmod 777 /home/sosecure/.vnc/xstartup
 

@@ -52,7 +52,7 @@ The default configuration is set as follows. Feel free to change this as require
 
 You can also build a custom image, i.e., if you want to use another Kali Desktop. If so, you can simply pass the Kali Desktop of your choice (i.e., `mate`, `gnome`, ...) as build argument. By default, the XFCE Desktop is configured. You may also edit the `Dockerfile` or `entrypoint.sh` to install custom packages. Also, you can specify different Kali Linux metapackages, i.e., `core`, `default`, `light`, `large`, `everything`, or `top10`. See [https://www.kali.org/news/major-metapackage-makeover/](https://www.kali.org/news/major-metapackage-makeover/) for more details and metapackages.
 
-Download and build by use the commands below.
+Download and build by use the commands below. (support only ubuntu 22.04)
 
 `git clone https://github.com/bypazs/kali-docker-vnc-novnc.git && cd kali-docker-vnc-novnc`
 
